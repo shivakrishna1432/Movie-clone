@@ -1,12 +1,23 @@
 import "./App.css";
-import Header from "./Components/Header";
-import Body from "./Components/Body";
+import Home from "./Components/Home";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import MoviesContainer from "./Components/MoviesContainer";
 
 function App() {
+  const appRouter = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home />,
+      children: [
+        {
+          path: "/",
+          element: <MoviesContainer />,
+        },
+      ],
+    },
+  ]);
   return (
     <div>
-      <Header />
-      <Body />
       {/**
        * Header
        * Body
@@ -18,6 +29,7 @@ function App() {
                 Description
           MovieInfo(Routing)
        **/}
+      <RouterProvider router={appRouter}></RouterProvider>
     </div>
   );
 }

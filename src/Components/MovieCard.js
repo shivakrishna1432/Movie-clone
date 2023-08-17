@@ -1,11 +1,11 @@
 import React from "react";
 import { IMAGE_CDN } from "../Utils/constants";
 
-export const MovieCard = ({ props }) => {
-  const { title, backdrop_path, vote_average, overview } = props;
+const MovieCard = ({ movie }) => {
+  const { title, backdrop_path, vote_average, overview } = movie;
   return (
     <>
-      <div className="flex flex-col w-[270px] shadow-lg rounded-lg m-3">
+      <div className="flex flex-col w-[270px] shadow-lg rounded-lg m-3 cursor-pointer hover:scale-110">
         <img
           src={IMAGE_CDN + backdrop_path}
           alt={title}
@@ -20,3 +20,5 @@ export const MovieCard = ({ props }) => {
     </>
   );
 };
+
+export default MovieCard;

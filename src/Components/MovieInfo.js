@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { HiMiniHome } from "react-icons/hi2";
 import { Link, useParams } from "react-router-dom";
-import { API_KEY } from "../Utils/constants";
 import MovieDetails from "./MovieDetails";
 import Movie from "./Movie";
 
@@ -16,7 +15,7 @@ const MovieInfo = () => {
   const getMovieInfo = async () => {
     const url =
       `https://api.themoviedb.org/3/movie/${id}/credits?api_key=` +
-      `${API_KEY}`;
+      `${process.env.REACT_APP_API_KEY}`;
     const data = await fetch(url);
     const json = await data.json();
     //console.log(json);
@@ -29,7 +28,7 @@ const MovieInfo = () => {
   }, []);
   const getMovieInfoDetails = async () => {
     const data = await fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=US`
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=US`
     );
 
     const json = await data.json();

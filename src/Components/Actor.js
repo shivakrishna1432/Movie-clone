@@ -3,7 +3,6 @@ import { IMAGE_CDN } from "../Utils/constants";
 import { logo } from "../Utils/helper";
 
 const Actor = ({ cast }) => {
-  console.log(cast);
   const { profile_path, name, character } = cast;
   return (
     <>

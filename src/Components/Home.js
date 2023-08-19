@@ -15,7 +15,6 @@ const Home = () => {
   const getMovies = async () => {
     const data = await fetch(MOVIES_API);
     const json = await data.json();
-    //console.log(json.results[0]);
     setMovies(json?.results);
     setSearchResults(json?.results);
   };
